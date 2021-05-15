@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: jose-pod
+  name: webserver
+  namespace: jose
   labels:
     app: myapp
-    type: front-end
+    type: webserver
 spec:
   containers:
 
-    - name: nginx-with-html
+    - name: webserver
       image: jriosor/webserver:4.0
       env:
       - name: LOG_HANDLERS
