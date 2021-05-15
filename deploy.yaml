@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: adidas
+  name: adidas
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: adidas
-  template:
-    metadata:
-      labels:
-        app: adidas
-    spec:
-      containers:
-      - name: adidas
-        image: jriosor/adidas:4.0
-        ports:
-        - containerPort: 3000
+  replicas: 3
+  selector:
+    matchLabels:
+      app: adidas
+  template:
+    metadata:
+      labels:
+        app: adidas
+    spec:
+      containers:
+      - name: adidas
+        image: 'jriosor/adidas:4.0'
+        ports:
+        - containerPort: 3000
