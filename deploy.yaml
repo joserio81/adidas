@@ -1,21 +1,29 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: webserver
+  name: jose-pod
+  namespace: jose
+  labels:
+    app: myapp
+    type: front-end
 spec:
-  replicas: 6
-  selector:
-    matchLabels:
-      app: webserver
-  template:
-    metadata:
-      labels:
-        app: webserver
-    spec:
-      containers:
-      - name: webserver
-        image: jriosor/webserver:4.0
-        ports:
-        - containerPort: 80
-      imagePullSecrets:
-      - name: jose-secret
+  containers:
+
+    - name: nginx-with-html
+      image: jriosor/webserver:4.0
+      env:
+      - name: LOG_HANDLERS
+        value: file
+      volumeMounts:
+      - mountPath: /log
+        name: log-volume
+
+  volumes:
+    - name: log-volume
+      hostPath:
+        # directory location on host
+        path: /Users/Jose/Desktop/CKA Certification/data
+        # this field is optional
+        type: Directory
+  imagePullSecrets:
+    - name: jose-secret
