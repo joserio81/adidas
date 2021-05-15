@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: webserver
-        image: webserver:4.0
+        image: jriosor/webserver:4.0
         ports:
         - containerPort: 80
       imagePullSecrets:
