@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: adidas
+  name: nginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: adidas
+      app: nginx
   template:
     metadata:
       labels:
-        app: adidas
+        app: nginx
     spec:
       containers:
-      - name: adidas
-        image: 'jriosor/adidas:4.0'
+      - name: nginx
+        image: nginx:1.7.9
         ports:
-        - containerPort: 3000
+        - containerPort: 80
