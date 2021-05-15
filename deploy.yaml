@@ -17,3 +17,5 @@ spec:
         image: webserver:4.0
         ports:
         - containerPort: 80
+      imagePullSecrets:
+      - name: jose-secret
