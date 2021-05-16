@@ -1,2 +1,2 @@
 FROM nginx:latest
-RUN echo "Hello Jose!"
+RUN echo "¡Hello Jose!"
